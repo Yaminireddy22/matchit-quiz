@@ -34,14 +34,58 @@ const makeQuestions = (count, level) =>
     a: 0
   }));
 
+/* ================= DEFAULT QUESTIONS ================= */
 
 const defaultQuestions = {
-  basic: makeQuestions(30, "Basic"),
-  medium: makeQuestions(20, "Medium"),
-  high: makeQuestions(10, "High")
+
+  basic: [
+    { q:"25% of 200 is?", options:["40","50","60","70"], a:1 },
+    { q:"5 + 7 × 2 = ?", options:["24","19","17","26"], a:1 },
+    { q:"Average of 10, 20, 30 is?", options:["15","20","25","30"], a:1 },
+    { q:"If 12 pens cost ₹60, cost of one pen?", options:["3","4","5","6"], a:2 },
+    { q:"Next number: 2, 4, 6, 8, ?", options:["9","10","12","11"], a:1 },
+    { q:"Odd one out: Apple, Mango, Banana, Carrot?", options:["Apple","Mango","Banana","Carrot"], a:3 },
+    { q:"If A=1, B=2, then C=?", options:["1","2","3","4"], a:2 },
+    { q:"How many days in a week?", options:["5","6","7","8"], a:2 },
+    { q:"CPU stands for?", options:["Central Processing Unit","Computer Personal Unit","Central Program Unit","Control Processing Unit"], a:0 },
+    { q:"RAM stands for?", options:["Random Access Memory","Read Access Memory","Run Access Memory","Random Allocation Memory"], a:0 },
+    { q:"HTML stands for?", options:["Hyper Text Markup Language","High Text Markup Language","Hyper Tabular Mark Language","Hyper Transfer Mark Language"], a:0 },
+    { q:"Which device is used to input data?", options:["Monitor","Keyboard","Speaker","Printer"], a:1 },
+    { q:"Which protocol loads webpages?", options:["FTP","HTTP","SMTP","SNMP"], a:1 },
+    { q:"Which data structure uses LIFO?", options:["Queue","Stack","Tree","Graph"], a:1 },
+    { q:"Binary of decimal 2?", options:["10","11","01","100"], a:0 },
+    { q:"Which company developed Windows?", options:["Google","Microsoft","Apple","IBM"], a:1 },
+    { q:"Which sport uses bat and ball?", options:["Football","Cricket","Tennis","Hockey"], a:1 },
+    { q:"Olympics held every?", options:["2 years","3 years","4 years","5 years"], a:2 },
+    { q:"Football team players on field?", options:["9","10","11","12"], a:2 },
+    { q:"Pizza originated from?", options:["USA","France","Italy","Spain"], a:2 }
+  ],
+
+  medium: [
+    { q:"If the average of 5 numbers is 48 and four numbers are 40, 42, 46, 50, find the fifth number.", options:["52","58","62","60"], a:3 },
+    { q:"A train 120 m long crosses a pole in 6 seconds. Speed of train?", options:["60 km/h","72 km/h","54 km/h","48 km/h"], a:1 },
+    { q:"Simple interest on ₹5000 for 3 years at 10% per annum is?", options:["1200","1500","1800","2000"], a:1 },
+    { q:"Find the next number: 3, 9, 27, 81, ?", options:["162","243","324","729"], a:1 },
+    { q:"Which protocol is used for secure web browsing?", options:["HTTP","FTP","HTTPS","SMTP"], a:2 },
+    { q:"Time complexity of Binary Search?", options:["O(n)","O(log n)","O(n²)","O(1)"], a:1 },
+    { q:"Chandrayaan-3 landed on which celestial body?", options:["Mars","Moon","Venus","Jupiter"], a:1 },
+    { q:"G20 Summit 2023 was hosted by?", options:["USA","India","Japan","France"], a:1 },
+    { q:"Which number is divisible by 9?", options:["1234","2345","999","1001"], a:2 },
+    { q:"IPv4 address size is?", options:["16 bits","32 bits","64 bits","128 bits"], a:1 }
+  ],
+
+  high: [
+    { q:"If x + 1/x = 5, find x² + 1/x².", options:["21","23","25","27"], a:1 },
+    { q:"Find the missing number: 2, 6, 7, 21, 22, 66, ?", options:["67","68","69","70"], a:0 },
+    { q:"Worst-case time complexity of Quick Sort?", options:["O(n log n)","O(log n)","O(n²)","O(n)"], a:2 },
+    { q:"Which routing protocol uses distance vector algorithm?", options:["OSPF","RIP","BGP","IS-IS"], a:1 },
+    { q:"Which scheduling algorithm gives minimum average waiting time?", options:["FCFS","Round Robin","Shortest Job First","Priority"], a:2 },
+    { q:"Which traversal of a Binary Search Tree gives sorted output?", options:["Preorder","Postorder","Level Order","Inorder"], a:3 },
+    { q:"A clock shows 3:15. What is the angle between hour and minute hands?", options:["0°","7.5°","15°","22.5°"], a:1 },
+    { q:"Port number used by HTTPS?", options:["21","80","443","8080"], a:2 }
+  ]
+
 };
-
-
 
 export default function App(){
 
