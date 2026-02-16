@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "./App.css";
+import { db } from "./firebase";
+import { ref, push, onValue } from "firebase/database";
 
 const textToImage = (text) => {
   const canvas = document.createElement("canvas");
@@ -127,6 +129,16 @@ useEffect(()=>{
   useEffect(()=>{
     if(timeLeft<=0 && step==="quiz") finishQuiz();
   },[timeLeft]);
+
+  useEffect(()=>{
+  const r = ref(db,"scores");
+  onValue(r,(snap)=>{
+    if(snap.exists())
+      setScoreSheet(snap.val());
+  });
+},[]);
+
+
 /* LIVE PROJECTOR AUTO REFRESH */
 useEffect(()=>{
   if(step !== "projector") return;
@@ -183,8 +195,7 @@ const finishQuiz=()=>{
   sheetCopy[level].push(entry);
 
   setScoreSheet(sheetCopy);
-  localStorage.setItem("scoreSheet",JSON.stringify(sheetCopy));
-
+  push(ref(db, "scores/" + level), entry);
   if(!completed.includes(level)){
     setCompleted([...completed,level]);
     setStep("levelSelect");
