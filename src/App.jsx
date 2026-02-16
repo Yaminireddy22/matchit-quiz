@@ -91,7 +91,15 @@ useEffect(()=>{
       setScoreSheet(snap.val());
   });
 },[]);
-
+/* LOAD QUESTIONS FROM FIREBASE */
+useEffect(()=>{
+  const qRef = ref(db,"questions");
+  onValue(qRef,(snap)=>{
+    if(snap.exists()){
+      setQuestionsData(snap.val());
+    }
+  });
+},[]);
 
   const startGame=()=>{
     setCurrent(0);
@@ -509,8 +517,9 @@ onClick={()=>{
   });
 
 setQuestionsData(updated);
-set(ref(db, "questions"), updated);
-alert("Questions saved to Firebase");
+set(ref(db, "questions/" + editLevel), questionsData[editLevel]);
+alert(editLevel + " saved to Firebase");
+
 
 }}
 >
