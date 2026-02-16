@@ -26,12 +26,6 @@ const ADMIN_PASS = "yksmquiz";
 
 /* ================= DEFAULT QUESTIONS ================= */
 
-const [questionsData,setQuestionsData]=useState({
-  basic: [],
-  medium: [],
-  high: []
-});
-
 export default function App(){
 
   const [step,setStep]=useState("register");
