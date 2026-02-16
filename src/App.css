@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  overflow:hidden;
+}
+
+.input{
+  padding:16px;
+  width:280px;
+  font-size:18px;
+  margin:12px 0;
+  border-radius:8px;
+}
+
+/* BACKGROUND */
+.bg{
+  height:100vh;
+  width:100vw;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background-image: url("/bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.levelBg{
+  background-image:url("/levelbg.jpeg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.frame{
+  width:92vw;
+  height:88vh;
+  border-radius:22px;
+  border:5px solid #ea94ea;
+  box-shadow:0 0 40px #ea94ea;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:25px;              /* ADD THIS */
+}
+
+
+/* TITLES */
+.title{
+  font-family:'Orbitron',sans-serif;
+  font-size:140px;
+  color:#79b6bc;
+  text-shadow:0 0 25px #79b6bc;
+}
+
+.subtitle{
+  font-size:58px;
+  color:#ea94ea;
+  margin-bottom:60px;
+}
+
+.row{display:flex;gap:60px}
+
+/* BOXES */
+.box,.quizCard{
+  background:#959090;
+  padding:35px;
+  border-radius:18px;
+  text-align:center;
+}
+
+.playerBox{
+  width:750px;            /* increase width */
+  min-height:480px;       /* increase height */
+  padding:70px 60px;
+  border-radius:22px;
+
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(10px);
+
+  border:2px solid rgba(109, 194, 203, 0.7);
+
+  box-shadow:
+    0 0 25px rgba(109, 194, 203, 0.7),
+    0 0 60px rgba(214, 142, 214, 0.5);
+
+  animation:holoFloat 3s ease-in-out infinite;
+}
+
+@keyframes holoFloat{
+  0%{ transform:translateY(0px); }
+  50%{ transform:translateY(-10px); }
+  100%{ transform:translateY(0px); }
+}
+
+.adminBox{
+  border:2px solid #79b6bc;
+  box-shadow:0 0 20px #79b6bc;
+}
+
+.btn{
+  padding:18px 40px;     /* increased */
+  font-size:22px;        /* bigger text */
+  border:none;
+  border-radius:10px;
+  margin:10px;           /* spacing between buttons */
+}
+
+.btn:hover{
+  box-shadow:0 0 20px #ea94ea;
+  transform:scale(1.05);
+  transition:0.2s;
+}
+
+
+.pink{background:#ea94ea;color:white}
+.blue{background:#ea94ea;color:white}
+
+/* QUIZ */
+.tile{
+  display:block;
+  width:100%;
+  margin-top:6px;
+  padding:10px;
+}
+
+.quizLayout{
+  width:100%;
+  height:100%;
+  display:flex;
+}
+
+.quizImg{
+  width:220px;
+  display:block;
+  margin:15px auto;
+  border-radius:12px;
+  box-shadow:0 0 20px #79b6bc;
+}
+
+.leftQuiz{
+  width:80%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.rightSidebar{
+  width:20%;
+  border:3px solid #00e5ff;
+  border-radius:16px;
+  box-shadow:0 0 25px #00e5ff;
+  margin:10px;
+  padding-top:30px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:25px;
+  background:#0f0f0f;
+}
+
+.navBtns{
+  display:flex;
+  justify-content:space-between;
+  margin-top:18px;
+}
+
+.timerBoxSide{
+  font-size:48px;
+  font-weight:900;
+  color:#00ff88;
+  text-shadow:0 0 12px #00ff88;
+}
+
+.timerBar{
+  height:16px;
+  width:220px;
+  background:#222;
+  border-radius:12px;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.timerBar div{
+  height:100%;
+  background:#00ff88;
+}
+
+.gridBox{
+  display:grid;
+  grid-template-columns:repeat(5,40px);
+  gap:10px;
+}
+
+.gridBtn{
+  height:38px;
+  background:#111;
+  color:white;
+  border:2px solid #555;
+}
+
+.activeGrid{
+  background:#ff00ff;
+}
+
+.answeredGrid{background:#00ff88;}
+.skippedGrid{background:#333;}
+.activeGrid{background:#ff00ff;}
+
+/* IMAGE MATCH LAYOUT */
+.matchLayout{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+}
+
+.matchImg{
+  width:220px;
+  border-radius:12px;
+  box-shadow:0 0 20px #79b6bc;
+}
+
+.matchOptions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.questionCard{
+  width:420px;
+  min-height:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  font-size:24px;
+  font-weight:600;
+  border-radius:16px;
+
+  background:linear-gradient(135deg,#1a1a1a,#000);
+  color:#79b6bc;
+
+  border:2px solid #79b6bc;
+  box-shadow:0 0 20px #79b6bc;
+  margin-bottom:20px;
+}
+
+.adminManage{
+  width:80%;
+  height:70vh;
+  overflow:auto;
+}
+
+.adminQuestionCard{
+  background:#524949;
+  padding:20px;
+  margin-bottom:20px;
+  border-radius:14px;
+  border:2px solid #79b6bc;
+}
+
+.adminInput{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:8px;
+}
+
+.adminOptionRow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:6px;
+}
+
+.adminBtns{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+}
+
+/* RESULT TABLE */
+.resultTable{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+  background:#0f0f0f;
+}
+
+.resultTable th,
+.resultTable td{
+  border:1px solid #00e5ff;
+  padding:10px;
+  text-align:center;
+  color:#ffffff;
+  font-size:16px;
+}
+
+.resultTable th{
+  background:#111;
+  color:#00e5ff;
+  font-weight:bold;
+}
+
+.resultTable tr:nth-child(even){
+  background:#141414;
+}
+
+.resultTable tr:hover{
+  background:#131212;
+}
+
+.adminBox table{
+  font-size:18px;
+}
+
+
+.matchLayout{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:20px;
+}
+
+.leftMatch{
+  width:45%;
+}
+
+.rightMatch{
+  width:45%;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.activeLeft{
+  background:#001d2e;
+  color:#00e5ff;
+}
+
+.matchLayout{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:20px;
+}
+
+.leftMatch{ width:40%; }
+
+.rightMatch{
+  width:40%;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.activeLeft{
+  background:#001d2e;
+  color:#00e5ff;
+}
+
+.matchedTile{
+  background:#00e5ff;
+  color:#000;
+}
+
+.matchLine{
+  position:absolute;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+.matchLine line{
+  stroke:#00e5ff;
+  stroke-width:4;
+  filter:drop-shadow(0 0 6px #00e5ff);
+}
+
+.matchLine{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:5;
+}
+
+.matchLine{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+.matchLine line{
+stroke:#00e5ff;        /* neon color */
+stroke-width:4;        /* thickness */
+filter: drop-shadow(0 0 8px #00e5ff);
+}
+
+.matchLayout{
+position:relative;
+}
+
+.matchLine{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+.matchLine line{
+stroke:#00e5ff;
+stroke-width:4;
+filter: drop-shadow(0 0 8px #00e5ff);
+}
+
+.leftMatch .tile{
+    width:100%;
+    min-height:140px;      /* bigger question box */
+    font-size:22px;
+    padding:25px;
+}
+
+.rightMatch .tile{
+    min-height:60px;       /* bigger option buttons */
+    font-size:20px;
+    padding:18px;
+}
+
+.leftMatch{ width:48%; }
+.rightMatch{ width:48%; }
+
+.levelBg .playerBox{
+  width:520px;        /* smaller only for level page */
+  min-height:320px;
+  padding:40px;
+}
+
+/* QUIZ page large */
+.quiz .playerBox{
+  width:820px;
+  min-height:520px;
+}
+
+/* Level select smaller */
+.levelSelect .playerBox{
+  width:520px;
+  min-height:320px;
+}
+
+/* Admin dashboard smaller */
+.adminDashboard .playerBox{
+  width:520px;
+  min-height:320px;
+}
+
+/* Admin manage page large scroll */
+.adminPanel .playerBox{
+  width:800px;
+  min-height:500px;
+}
+
+.adminLevel .playerBox{
+  width:520px;
+  min-height:320px;
+}
+
+.scaleWrapper{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Scale only on big projector screens */
+@media (min-width:1600px){
+  .scaleWrapper{
+    transform: scale(calc(min(100vw / 1920, 100vh / 1080)));
+    transform-origin: center center;
+    width:1920px;
+    height:1080px;
+  }
+}
+.adminBox{
+  max-height:75vh;       /* keeps inside pink frame */
+  overflow-y:auto;       /* scroll inside box */
+  margin:auto;           /* keep centered */
+}
+.matchLine{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
