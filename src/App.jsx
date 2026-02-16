@@ -91,20 +91,21 @@ useEffect(()=>{
       setScoreSheet(snap.val());
   });
 },[]);
+
 /* LOAD QUESTIONS FROM FIREBASE */
 useEffect(()=>{
-  const r = ref(db,"scores");
+  const r = ref(db,"questions");
   onValue(r,(snap)=>{
     if(snap.exists()){
-      const data = snap.val();
-      setScoreSheet({
-        basic: data.basic || {},
-        medium: data.medium || {},
-        high: data.high || {}
+      setQuestionsData({
+        basic: snap.val().basic || [],
+        medium: snap.val().medium || [],
+        high: snap.val().high || []
       });
     }
   });
 },[]);
+
 
   const startGame=()=>{
     setCurrent(0);
