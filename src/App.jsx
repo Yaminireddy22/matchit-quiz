@@ -93,10 +93,15 @@ useEffect(()=>{
 },[]);
 /* LOAD QUESTIONS FROM FIREBASE */
 useEffect(()=>{
-  const qRef = ref(db,"questions");
-  onValue(qRef,(snap)=>{
+  const r = ref(db,"scores");
+  onValue(r,(snap)=>{
     if(snap.exists()){
-      setQuestionsData(snap.val());
+      const data = snap.val();
+      setScoreSheet({
+        basic: data.basic || {},
+        medium: data.medium || {},
+        high: data.high || {}
+      });
     }
   });
 },[]);
@@ -118,15 +123,17 @@ const answer=(i)=>{
   setMatchedIndex(null);
   setSelectedLeft(false);
 
-  if(current+1<questionsData[level].length)
+  if(current+1 < (questionsData[level] || []).length)
     setCurrent(c=>c+1);
 };
 
 
 const finishQuiz=()=>{
 
+  const list = questionsData[level] || [];
+
   let score=0;
-  questionsData[level].forEach((qq,i)=>{
+  list.forEach((qq,i)=>{
     if(answers[i]===qq.a) score++;
   });
 
@@ -137,19 +144,10 @@ const finishQuiz=()=>{
   };
 
   const sheetCopy={...scoreSheet};
-  sheetCopy[level].push(entry);
+  if(!sheetCopy[level]) sheetCopy[level] = [];
 
   setScoreSheet(sheetCopy);
   push(ref(db, "scores/" + level), entry);
-  if(!completed.includes(level)){
-    setCompleted([...completed,level]);
-    setStep("levelSelect");
-    return;
-  }
-
-  const updated=[...leaderboard,entry].sort((a,b)=>b.score-a.score);
-  setLeaderboard(updated);
-  localStorage.setItem("scores",JSON.stringify(updated));
 
   setStep("result");
 };
@@ -550,7 +548,7 @@ Save All
       </thead>
 
       <tbody>
-        {(scoreSheet[lvl] || [])
+        {Object.values(scoreSheet[lvl] || {})
           .sort((a,b)=> b.score-a.score || a.time-b.time)
           .map((p,i)=>(
             <tr key={i}>
