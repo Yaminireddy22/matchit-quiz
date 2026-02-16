@@ -43,10 +43,7 @@ export default function App(){
   const layoutRef = useRef(null);
   const [bulkText,setBulkText] = useState("");
   const [lines,setLines] = useState({});
-  const [questionsData,setQuestionsData]=useState({
-  basic: [],
-  medium: [],
-  high: []
+  const [questionsData,setQuestionsData]=useState(defaultQuestions);
 });
 
   const [leaderboard,setLeaderboard]=useState(
