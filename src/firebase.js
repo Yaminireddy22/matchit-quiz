@@ -1,12 +1,12 @@
 // Import the functions you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getDatabase } from "firebase/database";   // add this
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDYXRwGgS0Z2TpQAQoIqYDp-_qAo4k_kc0",
   authDomain: "matchit-quiz.firebaseapp.com",
-  databaseURL: "https://matchit-quiz-default-rtdb.firebaseio.com",
+  databaseURL: "https://matchit-quiz-default-rtdb.firebaseio.com/",
   projectId: "matchit-quiz",
   storageBucket: "matchit-quiz.firebasestorage.app",
   messagingSenderId: "123144398999",
