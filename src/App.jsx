@@ -305,7 +305,7 @@ setTimeout(()=>{
   <div className="timerBoxSide">{timeLeft}</div>
 
   <div className="gridBox">
-    {questionsData[level].map((_,i)=>{
+   {(questionsData[level] || []).map((_,i)=>{
       let cls="gridBtn";
       if(i===current) cls+=" activeGrid";
       else if(answers[i]!=null) cls+=" answeredGrid";
@@ -422,7 +422,7 @@ Back
 
 <h2>Manage Questions ({editLevel.toUpperCase()})</h2>
 
-{questionsData[editLevel].map((qq,qi)=>(
+{(questionsData[editLevel] || []).map((qq,qi)=>(
 <div className="adminQuestionCard" key={qi}>
 
 <h3>Question {qi+1}</h3>
@@ -437,7 +437,7 @@ setQuestionsData(copy);
 }}
 />
 
-{qq.options.map((op,oi)=>(
+{(qq.options || []).map((op,oi)=>(
 <label key={oi} className="adminOptionRow">
 <input
 type="radio"
@@ -517,7 +517,7 @@ onClick={()=>{
   });
 
 setQuestionsData(updated);
-set(ref(db, "questions/" + editLevel), questionsData[editLevel]);
+set(ref(db, "questions/" + editLevel), updated[editLevel]);
 alert(editLevel + " saved to Firebase");
 
 
