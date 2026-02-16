@@ -24,16 +24,6 @@ const ADMIN_PASS = "yksmquiz";
 
 /* ================= DEFAULT QUESTIONS ================= */
 
-const makeQuestions = (count, level) =>
-  Array.from({ length: count }, (_, i) => ({
-    q: `${level} Question ${i + 1}`,
-    image: "",
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    a: 0
-  }));
-
-/* ================= DEFAULT QUESTIONS ================= */
-
 const defaultQuestions = {
 
   basic: [
