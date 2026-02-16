@@ -44,8 +44,6 @@ export default function App(){
   const [bulkText,setBulkText] = useState("");
   const [lines,setLines] = useState({});
   const [questionsData,setQuestionsData]=useState(defaultQuestions);
-});
-
   const [leaderboard,setLeaderboard]=useState(
     JSON.parse(localStorage.getItem("scores")) || []
   );
