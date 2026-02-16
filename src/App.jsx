@@ -1,7 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import "./App.css";
-import { ref, set, onValue } from "firebase/database";
-import { db } from "./firebase";
 
 const textToImage = (text) => {
   const canvas = document.createElement("canvas");
@@ -144,16 +142,6 @@ useEffect(() => {
   localStorage.setItem("questionsData", JSON.stringify(questionsData));
 }, [questionsData]);
 
-useEffect(() => {
-  const qRef = ref(db, "questions");
-  onValue(qRef, (snapshot) => {
-    const data = snapshot.val();
-    if (data) {
-      setQuestionsData(data);
-    }
-  });
-}, []);
-
   useEffect(()=>{
     if(timeLeft<=0 && step==="quiz") finishQuiz();
   },[timeLeft]);
@@ -247,8 +235,7 @@ const loadBulkQuestions = () => {
   copy[editLevel] = parsed;
 
   setQuestionsData(copy);
-  set(ref(db, "questions"), copy);   // SAVE TO FIREBASE
-  console.log("Firebase write executed");
+  localStorage.setItem("questionsData", JSON.stringify(copy));
   setBulkText("");
 
   alert("Bulk Questions Loaded");
