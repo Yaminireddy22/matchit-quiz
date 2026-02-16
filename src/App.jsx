@@ -92,10 +92,7 @@ export default function App(){
   const layoutRef = useRef(null);
   const [bulkText,setBulkText] = useState("");
   const [lines,setLines] = useState({});
-  const [questionsData,setQuestionsData]=useState(
-    JSON.parse(localStorage.getItem("questionsData")) || defaultQuestions
-  );
-
+  const [questionsData,setQuestionsData]=useState(defaultQuestions);
   const [leaderboard,setLeaderboard]=useState(
     JSON.parse(localStorage.getItem("scores")) || []
   );
@@ -126,11 +123,6 @@ useEffect(()=>{
   setMatchedIndex(null);
   setSelectedLeft(false);
 },[current]);
-
-  /* AUTO SAVE QUESTIONS */
-useEffect(() => {
-  localStorage.setItem("questionsData", JSON.stringify(questionsData));
-}, [questionsData]);
 
   useEffect(()=>{
     if(timeLeft<=0 && step==="quiz") finishQuiz();
