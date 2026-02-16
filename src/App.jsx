@@ -204,6 +204,7 @@ const loadBulkQuestions = () => {
 
   setQuestionsData(copy);
   set(ref(db, "questions"), copy);   // SAVE TO FIREBASE
+  console.log("Firebase write executed");
   setBulkText("");
 
   alert("Bulk Questions Loaded");
