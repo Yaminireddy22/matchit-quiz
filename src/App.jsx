@@ -144,14 +144,16 @@ const finishQuiz=()=>{
     time: TOTAL_TIME-timeLeft
   };
 
-  const sheetCopy={...scoreSheet};
-  if(!sheetCopy[level]) sheetCopy[level] = [];
-
-  setScoreSheet(sheetCopy);
   push(ref(db, "scores/" + level), entry);
 
-  setStep("result");
+  // unlock next level
+  if(!completed.includes(level)){
+    setCompleted(prev => [...prev, level]);
+  }
+
+  setStep("levelSelect");
 };
+
 
 const loadBulkQuestions = () => {
 
