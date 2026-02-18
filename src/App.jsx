@@ -22,7 +22,7 @@ const textToImage = (text) => {
 
 const TOTAL_TIME = 180;
 const ADMIN_USER = "matchit";
-const ADMIN_PASS = "yksmquiz";
+const ADMIN_PASS = "sweety07";
 
 /* ================= DEFAULT QUESTIONS ================= */
 
